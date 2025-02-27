@@ -1,0 +1,109 @@
+@baseURL = https://localhost/api
+
+@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJVc2VyQXV0aGVudGljYXRvciIsImlhdCI6MTc0MDQzOTM4NCwiZXhwIjoxNzQwNDQyOTg0LCJjbGFpbXMiOnsibmFtZSI6Ikd1cnUgUHJ1dGh2aSBKIE0iLCJlbWFpbCI6Imd1cnVwcnV0aHZpNjFAZ21haWwuY29tIiwicm9sZXMiOlsiY3VzdG9tZXIiXSwidXNlck5hbWUiOiJndXJ1LXBydXRodmkifX0.Udf-x1NhiEU0uvrIJRDJeHbjsqDQME4KR00lgVu1WFDQrjpK_sZWN9cEIzei8oGFLnqY0TUnnL9anSHxbBaEkLDaQrJxw9l4OT_0f5VX_YFSAANwqp-BkhpH07Zvlym7PeYVlcfHxj70NiiiygS0WPqLMlb4etix9RFmmmrJpCVYAOHqO5PvX1YJroVYR3hIHuscBsYHvfi1DWkVR9-s11MN4ETrF4hlgS70bUmhzwhS7nJBigWqx7Iz7KnTaHNoyjfhI7aKcLEEvny3Lf48QAIgxN2pN3Gr6zBdya2M9C5ZcOYqgdwZrwnsQseiiXhvbVgpOx3C4CKq0hjmUv1EOg
+
+### GET all customers
+GET {{baseURL}}/customers
+Authorization: BEARER {{token}}
+
+### GET a customer by ID
+GET {{baseURL}}/customers/jyothish-m-j
+Authorization: BEARER {{token}}
+
+### GET a payment by particular customer
+GET {{baseURL}}/customers/guru-pruthvi/payments
+Authorization: BEARER {{token}}
+
+### POST a payment by particular customer
+POST {{baseURL}}/customers/guru-pruthvi/payments
+Content-Type: application/json
+
+{
+    "amount": 50000,
+    "department": "finance"
+}
+
+### GET a ticket raised by a customer
+GET {{baseURL}}/customers/guru-pruthvi/tickets
+Authorization: BEARER {{token}}
+
+### POST a ticket raised by a customer
+POST  {{baseURL}}/customers/guru-pruthvi/tickets
+Authorization: BEARER {{token}}
+Content-Type: application/json
+
+{
+    "ticketType": "Technical Issue",
+    "ticketDescription": "There is a Glich in the Dashboard.",
+    "department": "Data&AI"
+}
+
+
+### GET a customer with INVALID ID
+GET {{baseURL}}/customers/INVALID_ID
+
+### POST a new customer
+POST {{baseURL}}/customers
+Content-Type: application/json
+
+{
+  "name": "Jyothish M J",
+  "phone_Number": "9632888266",
+  "username": "jyothish m j",
+  "password": "securePass123",
+  "email": "jyo@example.com",
+  "roles": ["customer"],
+  "address": "123 Main Street",
+  "pinCode": 571105
+}
+
+
+### POST a new Different Customer
+POST {{baseURL}}/customers
+Content-Type: application/json
+
+{
+    "email": "pruthvi@example.com",
+    "password": "securePass456",
+    "username": "pruthvi-guru",
+    "phone_Number": "9999999999",
+    "name": "Pruthvi Guru"
+}
+
+
+### Delete the customer by id
+DELETE {{baseURL}}/customers/guru-pruthvi
+
+
+### PUT to update the customer Details
+PUT {{baseURL}}/customers/jyothish-m-j
+Authorization: BEARER {{token}}
+Content-Type: application/json
+
+{
+    "email": "gurupruthvi61@gmail.com"
+}
+
+### POST a new Raise Ticket by particular ticket
+
+POST {{baseURL}}/customers/guru-pruthvi/tickets
+Authorization: BEARER {{token}}
+Content-Type: application/json
+
+{
+    "ticketType": "Amount",
+    "ticketDescription": "Unable to See my wallet",
+    "department": "finance"
+}
+
+### POST a new Payment
+
+POST {{baseURL}}/customers/guru-pruthvi/payments
+Authorization: BEARER {{token}}
+Content-Type: application/json
+
+{
+    "amount": 500,
+    "paymentType": "GPay",
+    "department": "jio"
+}

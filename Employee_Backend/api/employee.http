@@ -1,0 +1,87 @@
+@baseURL = https://localhost:8000/api
+@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJVc2VyQXV0aGVudGljYXRvciIsImlhdCI6MTc0MDMyMTYxMSwiZXhwIjoxNzQwMzI1MjExLCJjbGFpbXMiOnsibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huZG9lQGV4YW1wbGUuY29tIiwicm9sZXMiOlsiZW1wbG95ZWUiXSwidXNlck5hbWUiOiJqb2huLWRvZSJ9fQ.RrGrZm0GEEgvJN-WRdawEE8retkM43z2NEZ2N1QpanaBEw68qJbqpo5jaWTaHID4uX8uxy8EhYoFdn4q3hh2DcSVFQeRtQdlFkhb3oBo-YTD5LAs9jBpnEPN9ygncE9Lqty-AEirMCbIG7qikTbtq6uq6_frR0R8mbs4ZZPvyaL6jge_8PYMa5iFIO-aX7M1fgNkHHMSNOtYNbFjeqzxRSqqgklxbVw-1lN9D6D7Yb17BtTJilkX6Kw0B1gJVuq275rz11uMmVdCV7IPxC0ZlOCMzgKw9u5qiFG9afkj-b1jiUS2BxWwYyrf75SpYmPFi26F73V0YuvjeDym_WKG2g
+
+### GET all employees
+GET {{baseURL}}/employees
+Authorization: BEREAR {{token}}
+
+### GET all collegues of employees
+GET {{baseURL}}/employees/john-doe/collegue
+Authorization: BEARER {{token}}
+
+
+
+### GET an employee by ID
+GET {{baseURL}}/employees/nirmala
+Authorization: BEARER {{token}}
+
+### GET an employee by ID with tickets
+GET {{baseURL}}/employees/nirmala/tickets
+Authorization: BEARER {{token}}
+
+### GET an employee stats
+GET {{baseURL}}/employees/nirmala/stats
+Authorization: BEARER {{token}}
+
+### GET an employee with INVALID ID
+GET {{baseURL}}/employees/INVALID_ID
+
+### POST a new employee
+POST {{baseURL}}/employees
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "managerId": "MGR001",
+    "designation": "Software Engineer",
+    "department": "IT",
+    "gender": "MALE",
+    "dateOfBirth": "1990-05-15",
+    "dateOfJoining": "2020-03-01",
+    "salary": 75000,
+    "email": "john.doe@example.com",
+    "phoneNo": "1234567890",
+    "password": "securePassword123"
+}
+
+
+
+
+### POST a new Different Employee
+POST {{baseURL}}/employees
+Content-Type: application/json
+
+{
+    "name": "Jane Smith",
+    "managerId": "MGR002",
+    "designation": "HR Manager",
+    "department": "Human Resources",
+    "gender": "FEMALE",
+    "dateOfBirth": "1985-10-25",
+    "dateOfJoining": "2018-07-10",
+    "salary": 85000,
+    "email": "jane.smith@example.com",
+    "phoneNo": "0987654321",
+    "password": "strongPassword456"
+  }
+
+
+### Delete the employee by ID
+DELETE {{baseURL}}/employees/john-doe
+
+### PUT to update the employee Details
+PUT {{baseURL}}/employees/EMP001
+Content-Type: application/json
+
+{
+    "EMPLOYEE_TAKEHOME": 60000
+}
+
+### Update the ticket status
+PUT {{baseURL}}/employees/nirmala/tickets/jyothish-m-j-1740198888432
+Authorization: BEREAR {{token}}
+Content-Type: application/json
+
+{
+    "ticketStatus": "PENDING"
+}

@@ -1,0 +1,47 @@
+@baseURL = https://localhost/api
+
+### GET all tickets
+GET {{baseURL}}/tickets
+
+### GET a ticket by ID
+GET {{baseURL}}/tickets/guru-pruthvi-1739903369706
+
+### GET a ticket with INVALID ID
+GET {{baseURL}}/tickets/INVALID_ID
+
+### POST a new ticket
+POST {{baseURL}}/tickets
+Content-Type: application/json
+
+{
+    "customerId": "guru-pruthvi",
+    "ticketType": "Technical Issue",
+    "ticketDescription": "Unable to access the dashboard.",
+    "ticketStatus": "OPEN",
+    "department": "finance"
+}
+
+### POST a new different ticket
+POST {{baseURL}}/tickets
+Content-Type: application/json
+
+{
+    "ticketId": "TICKET456",
+    "customerId": "pruthvi-guru",
+    "employeeId": "EMP002",
+    "ticketType": "Billing Issue",
+    "ticketDescription": "Incorrect billing amount for last month.",
+    "ticketStatus": "OPEN",
+    "ticketPriority": "MEDIUM"
+}
+
+### DELETE the ticket by ID
+DELETE {{baseURL}}/tickets/TICKET123
+
+### PUT to update the ticket details
+PUT {{baseURL}}/tickets/guru-pruthvi-1739900815798
+Content-Type: application/json
+
+{
+    "ticketStatus": "CLOSED"
+}

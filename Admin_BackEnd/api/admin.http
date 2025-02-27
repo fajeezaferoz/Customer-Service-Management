@@ -1,0 +1,136 @@
+@baseURL = https://localhost:3000/api
+@token = eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJVc2VyQXV0aGVudGljYXRvciIsImlhdCI6MTc0MDQ4NTA0MCwiZXhwIjoxNzQwNDg4NjQwLCJjbGFpbXMiOnsibmFtZSI6IlNwb29ydGhpIEcgUyIsImVtYWlsIjoic3Bvb3J0aGlAZ21haWwuY29tIiwicm9sZXMiOlsiYWRtaW4iXSwidXNlck5hbWUiOiJzcG9vcnRoaS1ncyJ9fQ.TO-6t9Ht8eOQ6CZ2ZxAJTNuJosqRIwTTaH-y11GyXTR2LP_buUUZW022jB8pyCcIN_Adqlk1UDt9wIex3uN8PybEuH1pnDTwINodB7AZjtzLXEhdqp68_SZjWnCeRGjq-xZ7hz5vRZ_A59atAY983wL-t1v0-Gak2y40tcZjzgwplQb3oocFDI2WFLzyUhPD9mIuO9WFqYoKFmVePB2OnJ05NrNNqorRFgOzZm_9RjPo0mrd32rvNDLWNZ6OnM59VxiK0kSCSGD06fD2RoDPvsIJdfYEkVuCy8N3o-s5DEGDPv2hul4kCEAIrXK7-w-kZa7Oig14hGtqmYM2JTwrZg
+
+### GET all admins
+GET {{baseURL}}/admins
+Authorization: Bearer {{token}}
+
+### GET all the count ticketWithState
+GET {{baseURL}}/admins/guru-pruthvi/ticketWithState
+Authorization: Bearer {{token}}
+
+### GET all the count ticketWithCity 
+GET {{baseURL}}/admins/guru-pruthvi/ticketWithCity
+Authorization: Bearer {{token}}
+
+### GET all the count ticketWithDomain
+GET {{baseURL}}/admins/guru-pruthvi/ticketWithDomain
+Authorization: Bearer {{token}}
+
+### GET all the count ticketWithLatAndLog
+GET {{baseURL}}/admins/guru-pruthvi/ticketWithLatAndLog
+Authorization: Bearer {{token}}
+
+### EMPLOYEE
+### POST a new employee
+POST {{baseURL}}/employees
+Authorization: BEARER {{token}}
+Content-Type: application/json
+
+{
+    "name": "Guru Pruthvi J M",
+    "managerId": "nirmala",
+    "designation": "Software Engineer",
+    "department": "Engineering",
+    "email": "gurupruthvijm@gmail.com",
+    "phoneNo": "9019867897",
+    "password": "hashedpassword123"
+}
+
+
+### UPDATE the employee Details
+PUT {{baseURL}}/admins/guru-pruthvi/employee/guru-pruthvi-j-m
+Authorization: BEARER {{token}}
+Content-Type: application/json
+
+{
+    "name": "Guru Pruthvi J M",
+    "managerId": "nirmala",
+    "designation": "Senior Software Engineer",
+    "email": "gurupruthvijm@gmail.com"
+}
+
+
+### DELETE the employee by ID
+DELETE {{baseURL}}/admins/guru-pruthvi/employee/guru-pruthvi-j-m
+Authorization: BEARER {{token}}
+
+### MANAGERS
+### Add a new Manager
+POST {{baseURL}}/admins/guru-pruthvi/managers
+Authorization:  BEARER {{token}}
+Content-Type: application/json
+
+{
+    "name": "Nirmala",
+    "department": "Data&AI",
+    "email": "gurupruthvi61@gmail.com",
+    "username": "Nirmala Mahesh",
+    "phone_Number": "9019867898",
+    "password": "securePass123"
+}
+
+### PUT or Update the manager data by administrator
+PUT {{baseURL}}/admins/guru-pruthvi/managers/nirmala-mahesh
+Authorization: BEARER {{token}}
+Content-Type: application/json
+
+{
+    "name": "Nirmala",
+    "department": "Data&AI",
+    "email": "gurupruthvijm@gmail.com",
+    "username": "Nirmala Mahesh"
+}
+
+### DELETE the manager by ID
+DELETE {{baseURL}}/admins/guru-pruthvi/managers/nirmala-mahesh
+Authorization: BEARER {{token}}
+
+### GET an admin by ID
+GET {{baseURL}}/admins/admin12345
+Authorization: Bearer {{token}}
+
+### GET an admin with INVALID ID
+GET {{baseURL}}/admins/INVALID_ID
+
+### POST a new admin
+POST {{baseURL}}/admins
+Content-Type: application/json
+
+{
+    "Admin_ID": "admin12345",
+    "email": "guru@example.com",
+    "password": "securePass123",
+    "username": "guru_pruthvi",
+    "phone_Number": "9876543210",
+    "name": "Guru Pruthvi",
+    "department": "finance"
+}
+
+### POST a new admin
+POST {{baseURL}}/admins 
+Content-Type: application/json
+
+{
+    "Admin_ID": "admin67890",
+    "email": "pruthvi@example.com",
+    "password": "securePass456",
+    "username": "pruthvi-guru",
+    "phone_Number": "9999999999",
+    "name": "Pruthvi Guru",
+    "department": "sales"
+}
+
+### DELETE the admin by ID
+DELETE {{baseURL}}/admins/admin12345
+
+### PUT to update the admin details
+PUT {{baseURL}}/admins/admin12345 
+Content-Type: application/json
+
+{
+    "email": "guru@example.com",
+    "password": "securePass",
+    "username": "guru_pruthvi",
+    "department": "operations"
+}
