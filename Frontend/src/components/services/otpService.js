@@ -7,7 +7,7 @@ export const requestOtpFromAPI = async (data) => {
   console.log(data);
   try {
     const response = await axios.post(
-      "https://localhost:7000/api/customers/validateTheOTP",
+      "http://localhost:7000/api/customers/validateTheOTP",
       data,
       {
         headers: {
